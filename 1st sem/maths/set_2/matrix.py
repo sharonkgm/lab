@@ -1,7 +1,8 @@
 
-r = int(input("enter the number of rows"))
-c = int(input("enter the number of columns"))
+r = int(input("enter the number of rows :"))
+c = int(input("enter the number of columns :"))
 m = []
+print("enter matrix elements :")
 for i in range(r):
   a = []
   for j in range(c):
