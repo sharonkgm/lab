@@ -6,4 +6,5 @@ print("enter",r*c,"elements :")
 elements = list(map(int,input().split()))
 matrix = np.array(elements).reshape(r,c)
 m = matrix * s
+print("scalar matrix multiplication :")
 print(m)

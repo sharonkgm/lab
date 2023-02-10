@@ -6,6 +6,6 @@ m= [[0,0,0],[0,0,0],[0,0,0]]
 for i in range(len(matrix1)):
     for j in range(len(matrix2[0])):
      m[i][j] = matrix1[i][j] * matrix2[i][j]
-
+print("hadamard product of the given matrices is :")
 for k in m:
     print(k)

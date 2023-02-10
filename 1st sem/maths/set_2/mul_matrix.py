@@ -7,6 +7,6 @@ for i in range(len(matrix1)):
     for j in range(len(matrix2[0])):
         for k in range(len(matrix2)):
            m[i][j] += matrix1[i][k] * matrix2[k][j]
-
+print("product of given matrixes :")
 for k in m:
     print(k)

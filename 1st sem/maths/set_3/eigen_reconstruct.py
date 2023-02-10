@@ -7,8 +7,8 @@ from numpy.linalg import eig
 
 matrix = np.array([[3, 1], [2, 2]])
 eigen_value, eigen_vector = np.linalg.eig(matrix)
-print(eigen_value)
-print(eigen_vector)
+print("eigen value :",eigen_value)
+print("eigen vector :\n",eigen_vector)
 inv = inv(eigen_vector)
 diag = diag(eigen_value)
 rmatrix = eigen_vector.dot(diag).dot(inv)

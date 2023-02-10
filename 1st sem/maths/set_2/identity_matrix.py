@@ -1,3 +1,4 @@
+print("identity matrix of order 4 is :\n")
 for i in range(4):
     for j in range(4):
         if i==j:

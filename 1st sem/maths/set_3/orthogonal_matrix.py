@@ -15,6 +15,6 @@ def isorthogonal(matrix,m,n):
 matrix = np.array([[1, 0, 0],[0, 1, 0],[0, 0, 1]])
 
 if(isorthogonal(matrix, 3, 3)):
-    print("QQ^t = Q^t Q = I , orthogonal")
+    print("given matrix is orthogonal ,QQ^t = Q^t Q = I ")
 else:
-    print("QQ^t != Q^t Q != I , not orthogonal")
+    print("given matrix is not orthogonal, QQ^t != Q^t Q != I ")
