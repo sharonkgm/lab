@@ -15,10 +15,6 @@ def dfs(graph,visited,node,depth):
          if neighbour not in visited:
             dfs(graph,visited,neighbour,depth)
     
-
-
-
-
 graph = {'5' : ['3','7'],
   '3' : ['2', '4'],
   '7' : ['8'],
