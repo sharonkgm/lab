@@ -1,3 +1,24 @@
+#function for string matching
+def string_matching(string_arr,substring_arr,i,j,start):
+    while i < len(string_arr) and j < len(substring_arr):
+        if string_arr[i] == substring_arr[j]:
+            i += 1
+            j += 1
+        else:
+            i = start + 1
+            start = i
+            j = 0
+    if j == len(substring_arr):
+        print(f"substring found from {start} to {i - 1} ")
+        if i != len(string_arr):
+            #resetting substring index
+            j = 0
+            #recursive call of string matching function
+            string_matching(string_arr,substring_arr,i,j,i)
+                    
+    else:
+        print("not found")
+
 string = input("enter the string : ")
 substring = input("enter the substring to search :")
 string_arr = []
@@ -7,19 +28,5 @@ for i in string :
 
 for j in substring:
     substring_arr.append(j)
-
-stringIndex = 0
-substringIndex = 0
-start = stringIndex
-while substringIndex < len(substring_arr) and stringIndex < len(string_arr):
-    if string_arr[stringIndex] == substring_arr[substringIndex]:
-        stringIndex += 1
-        substringIndex += 1
-    else:
-        stringIndex = start + 1
-        start = stringIndex
-        substringIndex = 0
-if substringIndex == len(substring_arr):
-    print(f"substring found from {start} to {stringIndex - 1} ")
-else:
-    print("not found")
+#calling string matching function
+string_matching(string_arr,substring_arr,0,0,0)

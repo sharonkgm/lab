@@ -4,19 +4,21 @@ graph = {'5' : ['3','7'],
   '2' : [],
   '4' : ['8'],
   '8' : []}
+
 visited = []
 queue = []
-
-def bfs(visited,graph, node):
-    visited.append(node)
-    queue.append(node)
+#function for breadth first search
+def bfs(visited,graph, start_node):
+    visited.append(start_node)
+    queue.append(start_node)
     while queue:
-        m =queue.pop(0)
-        print(m, end = " ")
-        for neighbour in graph[m]:
-            if neighbour not in visited:
-                visited.append(neighbour)
-                queue.append(neighbour)
+        node =queue.pop(0)
+        print(node, end = "->")
+        for adjacent in graph[node]:
+            if adjacent not in visited:
+                visited.append(adjacent)
+                queue.append(adjacent)
 
-print("bfs of the given graph :")
+print("\nbreadth first search of the given graph :")
+#calling function for breadth first search
 bfs(visited,graph,'5')

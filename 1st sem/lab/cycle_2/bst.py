@@ -1,3 +1,4 @@
+#creating class for node
 class Node:
     def __init__(self,value):
         self.value = value
@@ -55,30 +56,28 @@ def successor(node):
     return current
 
 #deletion
-def deletion(node, value):
+def deletion(root, value):
     if root is None:
         return root
-    if value<node.value:
-        node.left = deletion(node.left, value)
-    elif value>node.value:
-        node.right = deletion(node.right,value)
+    if value<root.value:
+        root.left = deletion(root.left, value)
+    elif value>root.value:
+        root.right = deletion(root.right,value)
     else:
         #node have one child or no child
-        if node.left is None:
-            temp = node.right
-            node = None
+        if root.left is None:
+            temp = root.right
+            root = None
             return temp
-        elif node.right is None:
-            temp = node.left
-            node = None
+        elif root.right is None:
+            temp = root.left
+            root = None
             return temp
-        #node have two child
-        temp = successor(root.right)
-        node.value = temp.value
-        node.right = deletion(node.right, temp.value)
-    preorder(root)
-
-
+        else:
+            #node have two child
+            temp = successor(root.right)
+            root.value = temp.value
+            root.right = deletion(root.right, temp.value)
 
 root = None
 root = insert(root, 8)
@@ -90,8 +89,9 @@ root = insert(root, 10)
 root = insert(root, 14)
 root = insert(root, 4)
 element = int(input("enter element to search :"))
-n = int(input("enter a element to delete :"))
 search(root,element)
+n = int(input("\nenter a element to delete :"))
+
 print('\n')
 print("preorder traversal is :")
 preorder(root)
@@ -102,5 +102,6 @@ print('\n')
 print("postorder traversal is :")
 postorder(root)
 print('\n')
-print(f"after deletion of {n} , the preorder traversal is : ")
 deletion(root,n)
+print(f"node {n} deleted")
+

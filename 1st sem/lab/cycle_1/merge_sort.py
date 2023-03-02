@@ -1,9 +1,11 @@
+#function for merge sort
 def mergesort(array):
     if len(array)>1:
         mid = len(array)//2
+        #divide array in to two subarrays
         sub_array1 = array[:mid]
         sub_array2 = array[mid:]
-
+        #recursive call of merge sort function for each subarrays
         mergesort(sub_array1)
         mergesort(sub_array2)
 
@@ -15,14 +17,18 @@ def mergesort(array):
             else:
                 array[k] = sub_array2[j]
                 j += 1
+            k += 1
+        #add remaining elements to array,if there any elements
         while i<len(sub_array1):
             array[k] = sub_array1[i]
             i += 1
             k += 1
+           
         while j<len(sub_array2):
             array[k] = sub_array2[j]
             j += 1
             k += 1
+            
 
 n =int(input("enter the number of elements :"))
 array = []

@@ -1,18 +1,20 @@
-#graph = {'1':['3','2'],'2':['3','4'],'3':['4'],'4':['5'],'5':[]}
 graph = {'5' : ['3','7'],
   '3' : ['2', '4'],
   '7' : ['8'],
   '2' : [],
   '4' : ['8'],
   '8' : []}
-visited = set() # Set to keep track of visited nodes of graph.
-
-def dfs(visited, graph, node):  #function for dfs 
+#Set to keep track of visited nodes of graph.
+visited = set() 
+#function for depth first search
+def dfs(visited, graph, node):   
     if node not in visited:
-        print (node)
+        print(node,end = "->")
         visited.add(node)
-        for neighbour in graph[node]:
-            dfs(visited, graph, neighbour)
+        for adjacent in graph[node]:
+            #recursive calling of function
+            dfs(visited, graph, adjacent)
 
-print("Following is the Depth-First Search")
+print("Depth-First Search of given graph :\n")
+#calling function
 dfs(visited, graph, '5')
