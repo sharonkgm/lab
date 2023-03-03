@@ -1,3 +1,4 @@
+
 #set a infinit value to INF when there is no path between that nodes
 INF = 9999   
 #function to print solution
