@@ -78,6 +78,7 @@ def deletion(root, value):
             temp = successor(root.right)
             root.value = temp.value
             root.right = deletion(root.right, temp.value)
+    return root
 
 root = None
 root = insert(root, 8)
@@ -104,4 +105,6 @@ postorder(root)
 print('\n')
 deletion(root,n)
 print(f"node {n} deleted")
+print("the preorder traversal after deletion :")
+preorder(root)
 
