@@ -3,24 +3,20 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 
 # Load the Titanic dataset
-df = pd.read_csv('2nd sem\cycle_2\dataset\Titanic_dataset.csv')
+data = pd.read_csv('2nd sem\cycle_2\dataset\Titanic_dataset.csv')
 
-# Handle missing values (e.g., fill missing ages with the mean)
-df['Age'].fillna(df['Age'].mean(), inplace=True)
-
-# Encode categorical features like 'Sex' and 'Embarked'
-le = LabelEncoder()
-df['Sex'] = le.fit_transform(df['Sex'])
-df['Embarked'] = le.fit_transform(df['Embarked'])
+# Prepare the dataset
+data = data[['Survived', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch']]
+data = data.dropna()
+data['Sex'] = data['Sex'].map({'female': 0, 'male': 1})
 
 # Split the dataset into features (X) and target labels (y)
-X = df[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']]
-y = df['Survived']
+X = data.drop('Survived', axis=1)
+y = data['Survived']
 
 # Split into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
