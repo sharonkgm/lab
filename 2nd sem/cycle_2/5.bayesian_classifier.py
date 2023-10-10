@@ -12,6 +12,7 @@ data = pd.read_csv('2nd sem\cycle_2\dataset\Titanic_dataset.csv')
 # Prepare the dataset
 data = data[['Survived', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch']]
 data = data.dropna()
+
 data['Sex'] = data['Sex'].map({'female': 0, 'male': 1})
 
 # Split the dataset into features (X) and target labels (y)

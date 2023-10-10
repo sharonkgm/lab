@@ -16,12 +16,12 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 # Download the dataset from UCI repository
-url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data'
-filename = r'2nd sem\cycle_3\dataset\binaryclass.csv'
-urllib.request.urlretrieve(url, filename)
+# url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data'
+# filename = r'2nd sem\cycle_3\dataset\binaryclass.csv'
+# urllib.request.urlretrieve(url, filename)
 
 # Load the dataset
-data = pd.read_csv(filename, header=None)
+data = pd.read_csv(r'2nd sem\cycle_3\dataset\binaryclass.csv')
 
 # Prepare the dataset
 X = data.iloc[:, 2:]  # Features (columns 2 onwards)
