@@ -29,6 +29,16 @@ kmeans.fit(X_train_pca)
 # Assign labels to the clusters
 y_train_pred = kmeans.labels_
 
+# Map cluster labels to class labels
+label_mapping = {}
+for cluster_label in range(10):
+    mask = (y_train_pred == cluster_label)
+    mapped_label = y_train[mask].mode()[0]
+    label_mapping[cluster_label] = mapped_label
+
+y_train_pred_mapped = [label_mapping[cluster_label] for cluster_label in y_train_pred]
+
+
 # Evaluate the classification accuracy
-accuracy = accuracy_score(y_train, y_train_pred)
+accuracy = accuracy_score(y_train, y_train_pred_mapped)
 print("Training Accuracy:", accuracy)
