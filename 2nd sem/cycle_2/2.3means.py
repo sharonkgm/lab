@@ -49,12 +49,5 @@ new_case = np.array([0.906, 0.606])
 # Predict the cluster for the new data point
 new_case_cluster = kmeans.predict([new_case])
 
-# Extract class labels for data points in the same cluster as the new data point
-cluster_points = y[kmeans.labels_ == new_case_cluster[0]]
-
-# Predicted class is the most frequent class in the cluster
-predicted_class = int(np.argmax(np.bincount(cluster_points.astype(int))))
-
-
-print("Predicted class:", predicted_class)
+print("Predicted class:", new_case_cluster)
 
